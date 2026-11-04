@@ -322,8 +322,14 @@ if "app_mode" not in st.session_state:
 
 # --- HELPER DATA LOADER (Available for both Landing and Main SOC Views) ---
 def load_soc_data():
+    init_db()
     db = SessionLocal()
     try:
+        req_count = db.query(APIRequest).count()
+        if req_count == 0:
+            run_scenarios(clear_existing_logs=True)
+            reconstruct_exposures(clear_previous=True)
+
         exposures = get_all_exposures()
         requests = db.query(APIRequest).order_by(APIRequest.id.asc()).all()
         users = {u.id: u for u in db.query(User).all()}
