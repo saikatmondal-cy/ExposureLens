@@ -324,7 +324,7 @@ def build_simple_pdf_guide():
         ("Attribute Leakage", "When internal database columns (like credit limit or password hash) accidentally spill out into the user's browser.", "A waiter accidentally giving you the restaurant's daily earnings ledger.")
     ]
     add_terms_table(doc, s5_terms)
-    add_speech_box(doc, "Sir, we avoid fuzzy guessing. Every request is tested against an authorization context tuple: if the caller's company does not match the resource owner's company, it is deterministically flagged as BOLA. Furthermore, our Semantic Delta compares the returned JSON against the official contract. In the real incident shown on the screen, an attacker from Cyberdyne requested an Acme Corp record. While normal logs showed an ordinary response, ExposureLens isolated four leaked secrets: SSN, salary bracket, credit limit, and internal routing codes.")
+    add_speech_box(doc, "Sir, we avoid fuzzy guessing. Every request is tested against an authorization context tuple: if the caller's company does not match the resource owner's company, it is deterministically flagged as BOLA. Furthermore, our Semantic Delta compares the returned JSON against the official contract. In the real incidents in our system, an attacker from FinServe Global requested a HealthFirst Diagnostics medical document. While normal logs showed an ordinary response, ExposureLens isolated the leaked secrets: patient names, diagnostic biopsy findings, and prescribed oncology regimens.")
 
     # -------------------------------------------------------------------------
     # SLIDE 6
@@ -334,9 +334,9 @@ def build_simple_pdf_guide():
     add_callout(doc, "If a water pipe leaks inside Apartment 4, only Apartment 4 has a wet carpet. But if the leak breaks through the walls and floods Apartments 5, 6, and 7, the entire building's isolation has failed. TIFI measures that spread.", title="SLIDE 6 ANALOGY: THE APARTMENT WATER LEAK")
 
     s6_terms = [
-        ("Tenant", "A company or client organization using a shared cloud software.", "Company A (Acme Corp) and Company B (Cyberdyne) sharing the same cloud server."),
-        ("Cross-Tenant Leak", "When an attacker from Company A successfully steals private records belonging to Company B.", "A student from KIIT opening and editing a student's private grade sheet at another university."),
-        ("Directional Spillover", "Tracking the direction in which data flowed (e.g. from Acme Corp to Cyberdyne).", "Tracking where stolen goods traveled from the victim to the receiver."),
+        ("Tenant", "A company or client organization using a shared cloud software.", "Company 1 (FinServe Global) and Company 2 (HealthFirst Diagnostics) sharing the same cloud server."),
+        ("Cross-Tenant Leak", "When an attacker from Company A successfully steals private records belonging to Company B.", "A financial user from FinServe Global accessing oncology patient biopsy records in HealthFirst Diagnostics."),
+        ("Directional Spillover", "Tracking the direction in which data flowed (e.g. from HealthFirst Diagnostics to FinServe Global).", "Tracking where stolen goods traveled from the victim to the receiver."),
         ("Asymmetric Blast Radius", "When one company attacks many, but only certain victims suffer catastrophic damage.", "A fire that burns down three specific rooms while leaving others untouched."),
         ("Network Graph", "A visual map of dots (nodes = companies) and connecting arrows (edges = stolen data).", "A flight route map showing which cities have flights connecting them.")
     ]
