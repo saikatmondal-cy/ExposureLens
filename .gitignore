@@ -1,0 +1,59 @@
+# ==============================================================================
+# ExposureLens .gitignore
+# Excludes virtual environments, compiled bytecode, database files, and secrets
+# ==============================================================================
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Local Database & Transient Data
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+!data/.gitkeep
+
+# Secrets, Environment Variables & Credentials
+.env
+.env.*
+*.env
+*.key
+*.pem
+*.cert
+*.crt
+id_rsa*
+secrets.json
+secrets.toml
+credentials.json
+token.json
+.streamlit/secrets.toml
+
+# Logs & Temporary Files
+*.log
+*.tmp
+*.temp
+scratch/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor Specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
