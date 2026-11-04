@@ -316,7 +316,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Initialize App Mode: "landing" on initial open, "main" after clicking Start
+# Initialize App Mode: "landing" on initial open, "main" after clicking Start or if deep-linking via query param
+if "view" in st.query_params:
+    st.session_state["app_mode"] = "main"
+
 if "app_mode" not in st.session_state:
     st.session_state["app_mode"] = "landing"
 
@@ -953,28 +956,38 @@ with st.sidebar:
 
     st.divider()
 
+    menu_options = [
+        "📊 Executive Overview",
+        "🚨 BOLA Findings",
+        "📋 Exposure Inventory",
+        "👥 Affected Users & Blast Radius",
+        "🕸️ Exposure Relationship Graph",
+        "🔬 Semantic Property Delta (BOPLA)",
+        "🏢 Multi-Tenant Isolation & TIFI",
+        "⏱️ Attack Timeline & Replayer",
+        "⚖️ Risk & Impact Assessment",
+        "🔐 Forensic PoE Certificate",
+        "📜 Regulatory Compliance Notice",
+        "🛡️ OPA & Virtual Patch Generator",
+        "🔍 Cryptographic Evidence Explorer",
+        "🤖 AI Incident Reports",
+        "🧪 Research Evaluation & Benchmark",
+        "📄 IEEE Research Paper (LaTeX)",
+        "⚙️ Settings & Lab Controls"
+    ]
+
+    default_idx = 0
+    if "view" in st.query_params:
+        target_param = str(st.query_params["view"]).lower()
+        for idx, opt in enumerate(menu_options):
+            if target_param in opt.lower():
+                default_idx = idx
+                break
+
     menu = st.radio(
         "Investigation & Research Hub",
-        [
-            "📊 Executive Overview",
-            "🚨 BOLA Findings",
-            "📋 Exposure Inventory",
-            "👥 Affected Users & Blast Radius",
-            "🕸️ Exposure Relationship Graph",
-            "🔬 Semantic Property Delta (BOPLA)",
-            "🏢 Multi-Tenant Isolation & TIFI",
-            "⏱️ Attack Timeline & Replayer",
-            "⚖️ Risk & Impact Assessment",
-            "🔐 Forensic PoE Certificate",
-            "📜 Regulatory Compliance Notice",
-            "🛡️ OPA & Virtual Patch Generator",
-            "🔍 Cryptographic Evidence Explorer",
-            "🤖 AI Incident Reports",
-            "🧪 Research Evaluation & Benchmark",
-            "📄 IEEE Research Paper (LaTeX)",
-            "⚙️ Settings & Lab Controls"
-        ],
-        index=0
+        menu_options,
+        index=default_idx
     )
 
     st.divider()
