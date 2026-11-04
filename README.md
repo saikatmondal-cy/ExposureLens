@@ -1,10 +1,10 @@
 # 🛡️ ExposureLens: Evidence-Based Data Exposure Reconstruction & Multi-Tenant Blast-Radius Analysis for BOLA Vulnerabilities
 
 [![M.Tech Cyber Security Major Project](https://img.shields.io/badge/Project-M.Tech%20Cyber%20Security-blue.svg)](README.md)
-[![Python 3.14](https://img.shields.io/badge/Python-3.14.7-brightgreen.svg)](https://www.python.org/)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%20%7C%203.14-brightgreen.svg)](https://www.python.org/)
 [![License: Academic Research](https://img.shields.io/badge/License-Academic%20Research-purple.svg)](README.md)
 [![Status: Fully Operational MVP](https://img.shields.io/badge/Status-Operational%20MVP-success.svg)](README.md)
-[![IEEE Paper Ready](https://img.shields.io/badge/Paper-IEEE%20Camera%20Ready-red.svg)](README.md)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/saikatmondal-cy/ExposureLens)
 
 ---
 
